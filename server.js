@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const server = http.createServer();
 const app = express();
-app.use(epress.json());
+app.use(express.json());
 
 app.post('/users', (req, res)=>{
 	if(!req.body || Object.keys(req.body) === 0){
@@ -27,7 +27,7 @@ app.get('/users', (req, res)=>{
 	}catch (err){
 		res.status(500).json({message:'unable to read users'});
 	}
-);
+});
 
 server.on('request', app);
 
