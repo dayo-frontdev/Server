@@ -10,7 +10,7 @@ app.use(express.json());
 const connectionString = "mongodb://localhost:27017";
 
 async function init() {
-  const client = new MongoClient({
+  const client = new MongoClient(connectionString, {
     useUnifiedTopology: true,
   });
 
