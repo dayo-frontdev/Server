@@ -37,8 +37,8 @@ async function init() {
   });
 }
 
-init();
-app.use("./static");
+// init();
+// app.use("./static");
 
 app.post("/users", (req, res) => {
   if (!req.body || Object.keys(req.body) === 0) {
