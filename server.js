@@ -10,9 +10,7 @@ app.use(express.json());
 const connectionString = "mongodb://localhost:27017";
 
 async function init() {
-  const client = new MongoClient(connectionString, {
-    useUnifiedTopology: true,
-  });
+  const client = new MongoClient(connectionString);
 
   await client.connect();
 
@@ -27,20 +25,20 @@ async function init() {
             $search: req.query.search,
           },
         },
-        { _id: false }
+        { _id: 0 }
       )
-      .sort({ score: { $meta: "textSore" } })
+      .sort({ score: { $meta: "textScore" } })
       .limit(10)
       .toArray();
 
-    res.json({ status: "ok", pets }).end();
+    res.json({ status: "ok", pets });
   });
 }
 app.use(express.static("./static"));
 init();
 
 app.post("/users", (req, res) => {
-  if (!req.body || Object.keys(req.body) === 0) {
+  if (!req.body || Object.keys(req.body).length === 0) {
     return res.status(400).json({ message: "empty field not allowed" });
   }
   try {
