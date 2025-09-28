@@ -36,7 +36,7 @@ async function init() {
     res.json({ status: "ok", pets }).end();
   });
 }
-app.use("./static");
+app.use(express.static("./static"));
 init();
 
 app.post("/users", (req, res) => {
