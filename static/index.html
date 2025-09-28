@@ -19,7 +19,9 @@
 
       click.addEventListener("click", async () => {
         code.innerText = "Loading";
-        const res = await fetch("/?search=" + encodeURIComponent(input.value));
+        const res = await fetch(
+          "/get?search=" + encodeURIComponent(input.value)
+        );
         const data = await res.json();
         code.innerText = "\n" + JSON.stringify(data, null, 2);
       });
