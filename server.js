@@ -16,7 +16,7 @@ async function init() {
 
   await client.connect();
 
-  app.get("/", async (req, res) => {
+  app.get("/get", async (req, res) => {
     const db = client.db("adoption");
     const collection = db.collection("pets");
 
