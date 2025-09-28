@@ -38,7 +38,6 @@ async function init() {
 }
 
 init();
-app.use("./static", express.static("public"));
 
 app.post("/users", (req, res) => {
   if (!req.body || Object.keys(req.body) === 0) {
