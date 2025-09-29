@@ -7,13 +7,10 @@ const server = http.createServer();
 const app = express();
 app.use(express.json());
 
-const connectionString = "mongodb://127.0.0.1:27017";
+const connectionString = "mongodb://localhost:27017";
 
 async function init() {
-  const client = new MongoClient(connectionString,{
-	  useNewUrlPerser: true,
-	  useUnifiedTopology: true}
-  );
+  const client = new MongoClient(connectionString);
 
   await client.connect();
 
