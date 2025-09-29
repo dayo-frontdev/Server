@@ -28,7 +28,6 @@ async function init() {
         { _id: 0 }
       )
       .sort({ score: { $meta: "textScore" } })
-      .limit(10)
       .toArray();
 
     res.json({ status: "ok", pets });
