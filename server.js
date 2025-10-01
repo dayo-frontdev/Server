@@ -1,9 +1,9 @@
-import dotenv from 'dotenv';
-dotenv.config();
 const http = require("http");
 const express = require("express");
 const fs = require("fs");
 const { MongoClient } = require("mongodb");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const server = http.createServer();
 const app = express();
