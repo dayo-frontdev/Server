@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 const http = require("http");
 const express = require("express");
 const fs = require("fs");
@@ -7,7 +9,8 @@ const server = http.createServer();
 const app = express();
 app.use(express.json());
 
-const connectionString = "mongodb://localhost:27017";
+const connectionString = process.env.MONGO_URL;
+console.log(connectionString);
 
 async function init() {
   const client = new MongoClient(connectionString);
